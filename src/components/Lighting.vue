@@ -3,10 +3,10 @@
     <h1>{{ msg }}</h1>
     <h3>Prototyping the interface with the Web Power Switch Pro.</h3>
     <button :class="classname" v-if="lights" v-on:click="lightsOff()">
-      <fa :icon="['fa', 'lightbulb']" /> POOL LIGHTS
+      POOL LIGHTS
     </button>
     <button :class="classname" v-else v-on:click="lightsOn()">
-      <fa :icon="['far', 'lightbulb']" /> POOL LIGHTS
+      POOL LIGHTS
     </button>
   </div>
 </template>
