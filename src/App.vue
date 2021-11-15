@@ -1,10 +1,10 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
   <HelloWorld msg="Caribbean Courtyard Villa" />
 </template>
 
 <script>
-import HelloWorldVue from "./components/HelloWorld.vue";
+import HelloWorldVue from "./components/Lighting.vue";
+
 export default {
   name: "App",
   components: {
@@ -14,12 +14,14 @@ export default {
 </script>
 
 <style>
+@import url("https://fonts.googleapis.com/css?family=Rubik");
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: "Rubik", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: #ddd;
+  margin-top: 160px;
 }
 </style>
