@@ -2,11 +2,11 @@
   <div>
     <h1>{{ msg }}</h1>
     <h3>Prototyping the interface with the Web Power Switch Pro.</h3>
-    <button v-if="lights" v-on:click="lightsOff()">
-      <fa :icon="['fa', 'check-square']" /> LIGHTS OFF
+    <button :class="classname" v-if="lights" v-on:click="lightsOff()">
+      <fa :icon="['fa', 'lightbulb']" /> TURN LIGHTS OFF
     </button>
-    <button v-else v-on:click="lightsOn()">
-      <fa :icon="['far', 'square']" /> LIGHTS ON
+    <button :class="classname" v-else v-on:click="lightsOn()">
+      <fa :icon="['far', 'lightbulb']" /> TURN LIGHTS ON
     </button>
   </div>
 </template>
@@ -16,6 +16,7 @@ export default {
   name: "Caribbean Courtyard Villa",
   getHoursCondition: String,
   lights: false,
+  classname: "on",
 
   props: {
     msg: String,
@@ -29,6 +30,7 @@ export default {
       hours: new Date().getHours(),
       getHoursCondition: "", //define the variable first
       lights: false,
+      classname: "on",
     };
   },
 
@@ -45,9 +47,11 @@ export default {
     },
     lightsOn() {
       this.lights = true;
+      this.classname = "on";
     },
     lightsOff() {
       this.lights = false;
+      this.classname = "off";
     },
   },
 
@@ -57,6 +61,8 @@ export default {
   mounted() {
     this.getHours();
     document.body.className = this.getHoursCondition;
+    this.classname = "off";
+    this.lights = false;
   },
 };
 </script>
@@ -107,5 +113,12 @@ button {
   font-size: 26px;
   margin: 4px 2px;
   border-radius: 15px;
+}
+
+.on {
+  opacity: 1;
+}
+.off {
+  opacity: 0.7;
 }
 </style>
