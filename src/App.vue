@@ -1,14 +1,17 @@
 <template>
   <HelloWorld msg="Caribbean Courtyard Villa" />
+  <Weather />
 </template>
 
 <script>
 import HelloWorldVue from "./components/Lighting.vue";
+import WeatherVue from "./components/Weather.vue";
 
 export default {
   name: "App",
   components: {
     HelloWorld: HelloWorldVue,
+    Weather: WeatherVue,
   },
 };
 </script>
