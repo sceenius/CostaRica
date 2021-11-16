@@ -4,13 +4,13 @@
 </template>
 
 <script>
-import HelloWorldVue from "./components/Lighting.vue";
+import LightingVue from "./components/Lighting.vue";
 import WeatherVue from "./components/Weather.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld: HelloWorldVue,
+    HelloWorld: LightingVue,
     Weather: WeatherVue,
   },
 };

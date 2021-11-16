@@ -1,6 +1,8 @@
 <template>
   <div>
     <main>
+      <h2>Weather</h2>
+
       <div class="weather-wrap" v-if="typeof weather.main != 'undefined'">
         <div class="location-box">
           <div class="location">
@@ -47,6 +49,11 @@ export default {
           `https://api.openweathermap.org/data/2.5/weather?q=${location}&units=metric&APPID=${this.api_key}`
         );
         this.weather = await response.json();
+        if (this.weather.weather[0].icon.includes("n")) {
+          document.body.className = "night";
+        } else {
+          document.body.className = "day";
+        }
         console.log(this.weather);
       } catch (error) {
         console.log(error);
@@ -95,4 +102,17 @@ export default {
 </script>
 
 <style>
+body.night {
+  background: url("https://assets.hypha.earth/images/bg_night.png") no-repeat
+    center center fixed;
+  background-size: cover;
+  background-color: #111;
+}
+
+body.day {
+  background: url("https://assets.hypha.earth/images/bg_day.png") no-repeat
+    center center fixed;
+  background-size: cover;
+  background-color: #ddd;
+}
 </style>

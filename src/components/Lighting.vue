@@ -1,7 +1,7 @@
 <template>
   <div>
     <h1>{{ msg }}</h1>
-    <h3>Prototyping the interface with the Web Power Switch Pro.</h3>
+    <h2>Lighting</h2>
     <button :class="classname" v-if="lights" v-on:click="lightsOff()">
       POOL LIGHTS
     </button>
@@ -60,7 +60,7 @@ export default {
   ///////////////////////////////////////////////////////////////////////////////
   mounted() {
     this.getHours();
-    document.body.className = this.getHoursCondition;
+
     this.classname = "off";
     this.lights = false;
   },
@@ -68,20 +68,6 @@ export default {
 </script>
 
 <style>
-body.night {
-  background: url("https://assets.hypha.earth/images/bg_night.png") no-repeat
-    center center fixed;
-  background-size: cover;
-  background-color: #111;
-}
-
-body.day {
-  background: url("https://assets.hypha.earth/images/bg_day.png") no-repeat
-    center center fixed;
-  background-size: cover;
-  background-color: #ddd;
-}
-
 h1 {
   font-size: 3em;
   color: #fff;
