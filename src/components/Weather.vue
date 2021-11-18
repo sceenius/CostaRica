@@ -102,6 +102,14 @@ export default {
 </script>
 
 <style>
+body {
+  font-family: "Rubik", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #ddd;
+  margin-top: 160px;
+}
 body.night {
   background: url("https://assets.hypha.earth/images/bg_night.png") no-repeat
     center center fixed;

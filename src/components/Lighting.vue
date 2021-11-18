@@ -12,12 +12,12 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Caribbean Courtyard Villa",
   getHoursCondition: String,
   lights: false,
   classname: "on",
-
   props: {
     msg: String,
   },
@@ -31,6 +31,7 @@ export default {
       getHoursCondition: "", //define the variable first
       lights: false,
       classname: "on",
+      outlet: {},
     };
   },
 
@@ -38,13 +39,6 @@ export default {
   //  METHODS
   ///////////////////////////////////////////////////////////////////////////////
   methods: {
-    getHours: function () {
-      if (this.hours >= 5 && this.hours <= 17) {
-        this.getHoursCondition = "day";
-      } else {
-        this.getHoursCondition = "night";
-      }
-    },
     lightsOn() {
       this.lights = true;
       this.classname = "on";
@@ -59,10 +53,17 @@ export default {
   //  MOUNTED
   ///////////////////////////////////////////////////////////////////////////////
   mounted() {
-    this.getHours();
-
     this.classname = "off";
     this.lights = false;
+
+    let access_token = "Y2hpbmFzcHJvdXQ";
+    let url = "http://192.168.1.100/restapi/relay/outlets/=0,1,4/state/";
+
+    const config = {
+      headers: { Authorization: `Bearer ${access_token}` },
+    };
+
+    axios.get(url, config).then(console.log).catch(console.log);
   },
 };
 </script>
